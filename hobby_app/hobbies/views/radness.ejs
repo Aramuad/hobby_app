@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ./partials/header %>
+    </header>
+    <h1 class='center'>My Radness</h1>
+    <hr />
+    <div class='col s12 m4'>
+      <h3>Add Radness</h3>
+      <form action='/radness' method='post'>
+        <input type='text' name='title' placholder='Title' />
+        <button class='btn btn-waves' type='submt'>Add</button>
+      </form>
+    </div>
+    <table class='table col m8 s12'>
+      <thead>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>X</th>
+      </thead>
+      <tbody>
+        <% radness.forEach( function(rad) { %>
+          <tr>
+          <td><%= radness.title %></td>
+          </tr>
+        <% var url = "/radness/" + rad.id + "?_method=DELETE" %>
+        <% vr editUrl = "radness/" +rad.id + "/edit" %>
+        <tr>
+          <td><%= rad.title %></td>
+          <td>
+          <td>
+            <a class="btn" href=<%= editUrl %>>Edit</a>
+          </td>
+            <form method="POST" action=<%= url %>>
+              <button class="btn red">Delete</button>
+            </form>
+          </td>
+        </tr>
+       <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

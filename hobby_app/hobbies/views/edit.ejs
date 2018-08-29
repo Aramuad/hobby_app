@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ./partials/header %>
+    </header>
+    <div class="container">
+      <% var url = "/radness/" +rad.id + "?_method=PUT" %>
+      <form method ="POST" action=<%= url %>>
+        <input required name="title" value=<%= rad.title %> />
+        <a href ="/radness" class "btn red">Cancel</a>
+        <button class ="btn">Save</button>
+        </form>
+    </div>
+  </body>
+</html>
